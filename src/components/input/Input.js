@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import './Input.css';
 
 class Input extends Component{
-    render(){
-        return(
-            <div>
+  render(){
+    return(
+      <div>
                 
-            </div>
-        );
-    }
+      </div>
+    );
+	}
 }
 
 export default Input;
