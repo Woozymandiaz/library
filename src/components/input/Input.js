@@ -6,7 +6,6 @@ class Input extends Component{
     super(props);
     this.state = {term:''};
     this.handleChangeValue = this.handleChangeValue.bind(this);
-
   }
 
   handleChangeValue(event){

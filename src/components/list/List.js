@@ -14,8 +14,8 @@ class List extends Component{
         {data?.map((item, index) => (
           <div className="Item" key={index}>
             <h3>{item.name}</h3>
-            <p>{item.authors.join(',')}</p>
-            <p><a href={item.url} target='_blank' rel="noreferrer"> {item.url}</a></p>
+            <p>{item.author}</p>
+            <p><a href={item.url} target='_blank' rel="noreferrer">{item.url}</a></p>
           </div>
         ))}
       </div>

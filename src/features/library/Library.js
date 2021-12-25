@@ -3,7 +3,7 @@ import Header from '../../containers/header';
 import Section from '../../containers/section';
 import Input from '../../components/input';
 import List from '../../components/list';
-// api from '../../_config/api';
+import api from '../../_config/api';
 import './Library.css';
 
 class Library extends Component{
@@ -11,31 +11,44 @@ class Library extends Component{
   constructor(props){
     super(props);
   	this.state = {sectionData:props.sectionData}
-    //this.filterList = this.filterList.bind(this);
-    //this.fetchData = this.fetchData.bind(this);
+    this.filterList = this.filterList.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  filterList(value){
+    this.fetchData(value);
+  }
+  
+  async fetchData(value) {
+    const response = await api.get('/search?query='+value)
+
+    this.setState({sectionData:response?.data})
+  }
+
+  async componentDidMount(){
+    this.fetchData('');
   }
 
   render(){
 
-    //const {sectionData} = this.state;
+    const {sectionData} = this.state;
 
     const sectionClassSearch = 'SectionSearch';
     
     const sectionClassData = 'SectionData';
 
     const searchButton = '🔍';
-//callback={this.filterList}
-//<List data={sectionData}/>
+
     return(
       <div className="Library">
         <Header title={process.env.REACT_APP_TITLE}></Header>
 
         <Section className={sectionClassSearch}>
-          <Input mglass={searchButton}/>
+          <Input mglass={searchButton} callback={this.filterList}/>
         </Section>
 
       	<Section className={sectionClassData}>
-          
+          <List data={sectionData}/>
         </Section>
       </div>
     );
