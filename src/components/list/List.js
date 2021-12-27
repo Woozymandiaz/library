@@ -13,9 +13,9 @@ class List extends Component{
       <div className="List">
         {data?.map((item, index) => (
           <div className="Item" key={index}>
-            <h3>{item.name}</h3>
-            <p>{item.author}</p>
-            <p><a href={item.url} target='_blank' rel="noreferrer">{item.url}</a></p>
+            <h3>🌍 {item.title}</h3>
+            <p>💻 {item.author}</p>
+            <p>🪄 <a href={item.url} target='_blank' rel="noreferrer">{item.url}</a></p>
           </div>
         ))}
       </div>

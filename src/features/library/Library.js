@@ -22,7 +22,7 @@ class Library extends Component{
   async fetchData(value) {
     const response = await api.get('/search?query='+value)
 
-    this.setState({sectionData:response?.data})
+    this.setState({sectionData:response?.data.hits})
   }
 
   async componentDidMount(){
