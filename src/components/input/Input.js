@@ -4,22 +4,29 @@ import './Input.css';
 class Input extends Component{
   constructor(props){
     super(props);
-    this.state = {term:''};
-    this.handleChangeValue = this.handleChangeValue.bind(this);
+    this.state = {
+      ivalue:'',
+      term:''
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChangeValue(event){
+  handleInput(event){
     const {callback} = this.props;
-    this.setState({term:event.target.value});
+    this.setState({ivalue:event.target.value});
     callback(event.target.value);
+  }
+
+  handleClick(event){
+    this.setState({term:event.target.value});
   }
 
   render(){
     const {mglass} = this.props;
     return(
       <div class="Input">
-        <input type='text' onChange={this.handleChangeValue}></input>
-        <button class="button">{mglass}</button>
+        <input type='text' onChange={this.handleInput}></input>
+        <button class="button" onClick={this.handleClick} value={this.ivalue}>{mglass}</button>
       </div>
     );
 	}
