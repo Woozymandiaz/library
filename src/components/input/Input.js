@@ -15,7 +15,7 @@ class Input extends Component{
 
   handleClick(){
     const {callback} = this.props;
-    callback(this.state.next);
+    callback(this.state.term);
   }
 
   render(){
