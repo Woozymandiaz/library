@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { IState } from '../../redux/reducer';
 import { Header } from '../../containers/header';
 import { Section } from '../../containers/section';
 import { Input } from '../../components/input';
@@ -9,18 +11,19 @@ import './App.css';
 export const App: React.FC = () => {
 
   const [sectionData, setSectionData] = React.useState([]);
+  const searchData = useSelector<IState, IState["data"]>(state => state.data);
 
   const sectionClassSearch = 'SectionSearch'; 
   const sectionClassData = 'SectionData';
   const searchButton = '🔍';
 
-  const fetchData = async (searchData: string) => {
+  const fetchData = async () => {
     const response = await api.get('/search?query=' + searchData);
     setSectionData(response.data.hits);
     console.log(response.data);
   }
 
-  useEffect(() => { fetchData('') }, []);
+  useEffect(() => { fetchData() }, []);
 
   return(
     <div className="App">
