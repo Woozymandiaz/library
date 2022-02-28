@@ -1,0 +1,27 @@
+.Input{
+  display:flex;
+  float:left;
+  margin:auto;
+  width:100%;
+  overflow: auto;
+}
+
+.Input input[type=text]{
+  float:left;
+  width:40%;
+  margin-left:auto;
+  margin-bottom:10px;
+  font-family: sans-serif;
+  font-size: 120%;
+}
+
+.button{
+  margin-right:auto;
+  margin-left: 8px;
+  margin-bottom:10px;
+  border:none;
+  border-radius: 50%;
+  background-color:dodgerblue;
+  text-align:center;
+  font-size: 150%;
+}
